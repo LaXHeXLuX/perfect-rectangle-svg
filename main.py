@@ -112,7 +112,7 @@ def main():
 	else: create(
 		layout, 
 		output=args.output, 
-		scale=args.scale, 
+		scale=float(args.scale), 
 		verify=args.verify_unique
 	)
 

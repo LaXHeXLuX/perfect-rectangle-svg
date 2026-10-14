@@ -1,6 +1,5 @@
 import svg
-
-STROKE_WIDTH = 0.1
+from conf import STROKE_WIDTH
 
 def rect(w: int, h: int, color: str = "none"):
 	return svg.Rect(
@@ -17,16 +16,16 @@ def square(size: int, color: str = "none"):
 			rect(size, size, color),
 			svg.Text(
 				x="50%", y="50%",
+				dy="0.33em", # hack to get number exactly in the center
 				text=size,
 				font_size=max(1, size/5),
-				color="black",
-				dominant_baseline="central",
+				fill="black",
 				text_anchor="middle"
 			)
 		]
 	)
 
-def outer(w, h, scale=1, color="none"):
+def outer(w: int, h: int, scale: float = 1, color="none"):
 	return svg.SVG(
 		width=scale*w,
 		height=scale*h,
@@ -34,7 +33,7 @@ def outer(w, h, scale=1, color="none"):
 		elements=[rect(w, h, color=color)]
 	)
 
-def draw(w: int, h: int, squares: list, scale=1, color = lambda _ : "none"):
+def draw(w: int, h: int, squares: list, scale: float = 1, color = lambda _ : "none"):
 	canvas = outer(w, h, scale=scale)
 	canvas.elements[0].stroke_width = STROKE_WIDTH * 2
 

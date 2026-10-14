@@ -6,3 +6,4 @@ TEST_LAYOUTS = [
 	"24 175 175 81 56 38 18 20 55 16 3 1 5 14 4 9 39 51 30 29 31 64 43 8 35 2 33", # tablecode. smallest composite perfect square
 ]
 DEFAULT_OUTPUT = "output"
+STROKE_WIDTH = 0.1
